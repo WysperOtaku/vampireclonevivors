@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemyN1 : MonoBehaviour
 {
-    private float velocidadBala = 2.5f;
+    private float velocidadE = 2.5f;
     private GameObject player;
     private int vidaEn1 = 3;
     // Start is called before the first frame update
@@ -36,7 +36,12 @@ public class EnemyN1 : MonoBehaviour
         if (player != null)
         {
             Vector3 direccion = (player.transform.position - transform.position).normalized;
-            GetComponent<Rigidbody2D>().velocity = direccion * velocidadBala;
+            Vector2 velocidadireccion = GetComponent<Rigidbody2D>().velocity = direccion * velocidadE;
+        }
+        if (player == null)
+        {
+            Vector3 direccion = (player.transform.position - transform.position).normalized;
+            Vector2 velocidadireccion = GetComponent<Rigidbody2D>().velocity = direccion * 0;
         }
     }
 }

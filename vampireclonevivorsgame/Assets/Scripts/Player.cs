@@ -6,7 +6,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     private float velocidad = 5f;
-    private int vidaP = 100;
+    private int vidaP = 3;
     // Start is called before the first frame update
     void Start()
     {
