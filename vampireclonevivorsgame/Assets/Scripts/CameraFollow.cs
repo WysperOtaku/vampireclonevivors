@@ -23,25 +23,32 @@ public class CameraFollow : MonoBehaviour
             float camHalfHeight = UnityEngine.Camera.main.orthographicSize;
             float camHalfWidth = UnityEngine.Camera.main.aspect * camHalfHeight;
 
+            // Inicializa los límites mínimos y máximos permitidos para la cámara
+            float minX = float.PositiveInfinity, maxX = float.NegativeInfinity, minY = float.PositiveInfinity, maxY = float.NegativeInfinity;
+
             // Verifica si la nueva posición está dentro de los límites de cualquiera de los BoxCollider2D del mapa
             foreach (BoxCollider2D bounds in mapBounds)
             {
                 // Ajusta los límites del mapa para tener en cuenta el tamaño de la cámara
-                float minX = bounds.bounds.min.x + camHalfWidth;
-                float maxX = bounds.bounds.max.x - camHalfWidth;
-                float minY = bounds.bounds.min.y + camHalfHeight;
-                float maxY = bounds.bounds.max.y - camHalfHeight;
-
-                if (desiredPosition.x >= minX && desiredPosition.x <= maxX && desiredPosition.y >= minY && desiredPosition.y <= maxY)
-                {
-                    // Si la nueva posición está dentro de los límites, ajusta la posición para que se mantenga dentro de los límites
-                    desiredPosition.x = Mathf.Clamp(desiredPosition.x, minX, maxX);
-                    desiredPosition.y = Mathf.Clamp(desiredPosition.y, minY, maxY);
-                    break;
-                }
+                minX = Mathf.Min(minX, bounds.bounds.min.x + camHalfWidth);
+                maxX = Mathf.Max(maxX, bounds.bounds.max.x - camHalfWidth);
+                minY = Mathf.Min(minY, bounds.bounds.min.y + camHalfHeight);
+                maxY = Mathf.Max(maxY, bounds.bounds.max.y - camHalfHeight);
             }
+
+            // Ajusta los límites para evitar que se vea más allá de los límites del mapa
+            float adjustment = 0.2f; // Puedes ajustar este valor según sea necesario
+            minX += adjustment;
+            maxX -= adjustment;
+            minY += adjustment;
+            maxY -= adjustment;
+
+            // Asegura que la cámara siempre se mantenga dentro de los límites del mapa
+            desiredPosition.x = Mathf.Clamp(desiredPosition.x, minX, maxX);
+            desiredPosition.y = Mathf.Clamp(desiredPosition.y, minY, maxY);
 
             transform.position = desiredPosition;
         }
     }
 }
+
