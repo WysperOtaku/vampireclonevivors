@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PuntoAtaqueN2 : MonoBehaviour
+public class PuntoAtaqueN3 : MonoBehaviour
 {
     public GameObject balaEP;
     public Transform puntoAtaque;
