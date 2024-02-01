@@ -1,13 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class EnemyN1 : MonoBehaviour
+public class EnemyN2 : MonoBehaviour
 {
-    private float velocidadE = 2.5f;
+    private float velocidadE = 2f;
     private GameObject player;
-    private int vidaEn1 = 3;
+    private int vidaEn1 = 5;
     // Start is called before the first frame update
     void Start()
     {
