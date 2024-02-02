@@ -12,7 +12,6 @@ public class PuntoAtaque : MonoBehaviour
     {
         InvokeRepeating("Disparo", 1f, cooldownBala);
     }
-
     void Disparo()
     {
         GameObject[] enemigos = GameObject.FindGameObjectsWithTag("Enemy");
