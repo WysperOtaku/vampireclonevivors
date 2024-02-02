@@ -14,7 +14,6 @@ public class PuntoAtaque : MonoBehaviour
     {
         InvokeRepeating("Disparo", 1f, cooldownBala);
     }
-
     void Disparo()
     {
         disparar = true;

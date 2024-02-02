@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
+using JetBrains.Annotations;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -9,6 +11,7 @@ public class EnemyN1 : MonoBehaviour
     private GameObject player;
     private int vidaEn1 = 3;
     public static int killslvl1 = 0;
+    private float dañoP = 1f;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,11 +23,12 @@ public class EnemyN1 : MonoBehaviour
     {
         
     }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("BalaP") || collision.gameObject.CompareTag("Player"))
         {
-            vidaEn1--;
+            vidaEn1 -= dañoP + Player.nuevoDaño;
             if (vidaEn1 <= 0)
             {
             Destroy(this.gameObject);

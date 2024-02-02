@@ -8,6 +8,7 @@ public class EnemyN2 : MonoBehaviour
     private GameObject player;
     private int vidaEn1 = 5;
     public static int killslvl2 = 0;
+    private float dañoP = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,11 +20,15 @@ public class EnemyN2 : MonoBehaviour
     {
         
     }
+    public void DañoPlayer(float nuevoDaño)
+    {
+        dañoP = nuevoDaño + dañoP;
+    }
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("BalaP") || collision.gameObject.CompareTag("Player"))
         {
-            vidaEn1--;
+            vidaEn1 = vidaEn1 - dañoP;
             if (vidaEn1 <= 0)
             {
             Destroy(this.gameObject);

@@ -6,13 +6,15 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     private float velocidad = 5f;
-    private int vidaP = 3;
+    private int vidaP = 100;
+    public static float nuevoDaño;
     // Start is called before the first frame update
     void Start()
     {
         EnemyN1.killslvl1 = 0;
         EnemyN2.killslvl2 = 0;
         EnemyN3.killslvl3 = 0;
+        nuevoDaño = 0;
     }
 
     // Update is called once per frame
