@@ -11,6 +11,9 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        EnemyN1.killslvl1 = 0;
+        EnemyN2.killslvl2 = 0;
+        EnemyN3.killslvl3 = 0;
         nuevoDaño = 0;
     }
 

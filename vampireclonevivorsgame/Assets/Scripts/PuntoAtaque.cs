@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections; // Añade esta línea
 
 public class PuntoAtaque : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class PuntoAtaque : MonoBehaviour
     private float velocidadBala = 10f;
     private float cooldownBala = 0.75f;
     private float rangoDisparo = 10f;
+    public static bool disparar = false;
 
     void Start()
     {
@@ -14,6 +16,8 @@ public class PuntoAtaque : MonoBehaviour
     }
     void Disparo()
     {
+        disparar = true;
+        //Debug.Log("Disparo");
         GameObject[] enemigos = GameObject.FindGameObjectsWithTag("Enemy");
 
         GameObject enemigoMasCercano = null;
@@ -35,5 +39,16 @@ public class PuntoAtaque : MonoBehaviour
             Rigidbody2D rb = bala.GetComponent<Rigidbody2D>();
             rb.velocity = direccion * velocidadBala;
         }
+        
+        StartCoroutine(ResetDisparar());
+    }
+    
+    private IEnumerator ResetDisparar()
+    {
+        // Wait for 0.5 seconds
+        yield return new WaitForSeconds(1f);
+        Debug.Log("Reset Disparar");
+        // Set disparar to false
+        disparar = false;
     }
 }
