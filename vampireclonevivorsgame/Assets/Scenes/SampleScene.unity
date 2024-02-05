@@ -1943,6 +1943,7 @@ MonoBehaviour:
   enemyPrefabs:
   - {fileID: 8922191591944955107, guid: b8a16e648b4a6bd4aa40f7a2a736b73c, type: 3}
   - {fileID: 5940117328796269588, guid: 24922d8759059ed49b639b139dad76d2, type: 3}
+  - {fileID: 8730080770878602370, guid: 1987c465fc7145db4bedf402037a2538, type: 3}
   mapLowerLeftCorner: {fileID: 1870063415}
   mapUpperRightCorner: {fileID: 1728085707}
 --- !u!1 &1728085707
@@ -2800,7 +2801,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 519420032}
   - {fileID: 1215449281}
-  - {fileID: 7972448}
+  - {fileID: 7972448}1
   - {fileID: 127339350}
   - {fileID: 1923226371}
   - {fileID: 434640551}

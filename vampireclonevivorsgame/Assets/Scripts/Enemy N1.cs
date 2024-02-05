@@ -10,6 +10,7 @@ public class EnemyN1 : MonoBehaviour
     private float velocidadE = 2.5f;
     private GameObject player;
     private float vidaEn1 = 3;
+    public static int killslvl1 = 0;
     private float dañoP = 1f;
     // Start is called before the first frame update
     void Start()
@@ -31,6 +32,7 @@ public class EnemyN1 : MonoBehaviour
             if (vidaEn1 <= 0)
             {
             Destroy(this.gameObject);
+            killslvl1++;
             }
         }
     }
