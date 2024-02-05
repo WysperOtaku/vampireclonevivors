@@ -14,7 +14,7 @@ public class Spawn : MonoBehaviour
     {
         SpawnEnemies();
     }
-    private void SpawnEnemies()
+    private void SpawnEnemies() // This method is called when all enemies are dead
     {
         generationCount++;
         for (int i = 0; i < totalEnemiesToSpawn; i++)
