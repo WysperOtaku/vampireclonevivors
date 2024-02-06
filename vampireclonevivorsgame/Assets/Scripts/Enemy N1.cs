@@ -7,7 +7,8 @@ using UnityEngine;
 
 public class EnemyN1 : MonoBehaviour
 {
-    private float velocidadE = 2.5f;
+    public static float velocidadE = 2.5f;
+    public static float velExtra;
     private GameObject player;
     private float vidaEn1 = 3;
     public static int killslvl1 = 0;
@@ -23,17 +24,24 @@ public class EnemyN1 : MonoBehaviour
     {
         
     }
-
+    public void IncrementarVida(float incremento)
+    {
+        vidaEn1 += incremento;
+    }
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("BalaP") || collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("BalaP"))
         {
             vidaEn1 -= dañoP + Player.nuevoDaño;
-            if (vidaEn1 <= 0)
-            {
-            Destroy(this.gameObject);
-            killslvl1++;
-            }
+        }
+        else if (collision.gameObject.CompareTag("Player"))
+        {
+            vidaEn1--;
+        }
+        if (vidaEn1 <= 0)
+        {
+        Destroy(this.gameObject);
+        killslvl1++;
         }
     }
     private void FixedUpdate()

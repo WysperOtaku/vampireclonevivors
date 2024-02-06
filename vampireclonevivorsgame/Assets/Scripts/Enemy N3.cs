@@ -7,7 +7,8 @@ public class EnemyN3 : MonoBehaviour
 {
     public Transform player; 
     public GameObject puntoAtaque;
-    private float moveSpeed = 3.5f;
+    public static float moveSpeed = 3.25f;
+    public static float velExtra;
     private float stoppingDistance = 5f;
     public Transform childTransform; // Referencia al objeto hijo
     private int dodgeCount = 0; // Contador de esquivas

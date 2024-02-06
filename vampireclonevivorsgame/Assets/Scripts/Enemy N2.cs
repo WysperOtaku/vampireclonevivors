@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class EnemyN2 : MonoBehaviour
 {
-    private float velocidadE = 2f;
+    public static float velocidadE = 2f;
+    public static float velExtra;
     private GameObject player;
     private float vidaEn1 = 5;
     public static int killslvl2 = 0;
+    private float dañoP = 1f;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,14 +23,18 @@ public class EnemyN2 : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("BalaP") || collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("BalaP"))
+        {
+            vidaEn1 -= dañoP + Player.nuevoDaño;
+        }
+        else if (collision.gameObject.CompareTag("Player"))
         {
             vidaEn1--;
-            if (vidaEn1 <= 0)
-            {
-            Destroy(this.gameObject);
-            killslvl2 += 1;
-            }
+        }
+        if (vidaEn1 <= 0)
+        {
+        Destroy(this.gameObject);
+        killslvl2++;
         }
     }
     private void FixedUpdate()

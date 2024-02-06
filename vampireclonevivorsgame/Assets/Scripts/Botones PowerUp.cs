@@ -19,18 +19,25 @@ public class BotonesPowerUp : MonoBehaviour
     public void PowerUp1()
     {
         Player.nuevoDaño += 0.5f;
+        EnemyN1.velocidadE = EnemyN1.velExtra = 0.25f + EnemyN1.velocidadE;
+        EnemyN2.velocidadE = EnemyN2.velExtra = 0.25f + EnemyN2.velocidadE;
+        EnemyN3.moveSpeed = EnemyN3.velExtra = 0.25f + EnemyN3.moveSpeed;
         panelPowerup.SetActive(false);
         Time.timeScale = 1;
     }
     public void PowerUp2()
     {
-        //dar power up
+        PuntoAtaque.cooldownBala -= 0.05f;
+        PuntoAtaqueN2.cooldownBala -= 0.1f;
+        PuntoAtaqueN2.cooldownBala -= 0.1f;
         panelPowerup.SetActive(false);
         Time.timeScale = 1;
     }
     public void PowerUp3()
     {
-        //dar power up
+        EnemyN1 enemyN1 = FindObjectOfType<EnemyN1>();
+        Player.vidaP = 25f + Player.vidaP;
+        enemyN1.IncrementarVida(1);
         panelPowerup.SetActive(false);
         Time.timeScale = 1;
     }

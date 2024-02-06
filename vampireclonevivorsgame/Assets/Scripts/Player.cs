@@ -6,7 +6,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     private float velocidad = 5f;
-    private int vidaP = 100;
+    public static float vidaP = 100;
     public static float nuevoDaño;
     // Start is called before the first frame update
     void Start()
@@ -24,6 +24,10 @@ public class Player : MonoBehaviour
         float vertical = Input.GetAxis("Vertical");
         Vector3 movimiento = new Vector3(horizontal, vertical, 0);
         transform.Translate(movimiento * velocidad * Time.deltaTime);
+        if (vidaP >= 100)
+        {
+            vidaP = 100;
+        }
     }
     void OnCollisionEnter2D (Collision2D collision)
     {
