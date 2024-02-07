@@ -35,9 +35,8 @@ public class BotonesPowerUp : MonoBehaviour
     }
     public void PowerUp3()
     {
-        EnemyN1 enemyN1 = FindObjectOfType<EnemyN1>();
         Player.vidaP = 25f + Player.vidaP;
-        enemyN1.IncrementarVida(1);
+        
         panelPowerup.SetActive(false);
         Time.timeScale = 1;
     }
