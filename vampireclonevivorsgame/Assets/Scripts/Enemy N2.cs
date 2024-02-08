@@ -8,12 +8,15 @@ public class EnemyN2 : MonoBehaviour
     public static float velocidadE = 2f;
     public static float velExtra;
     private GameObject player;
+    public static int killslvl2;
+    public SpriteRenderer healthBar;
+    public Transform healthBarTransform;
+    public int maxHealth = 5;
     public GameObject powerUp1;
     public GameObject powerUp2;
     private float vidaEn1;
     public float vidaInicial = 5;
     public static float incremento;
-    public static int killslvl2 = 0;
     private float dañoP = 1f;
     // Start is called before the first frame update
     void Start()
@@ -24,7 +27,10 @@ public class EnemyN2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        /*Placeholder de barra de vida luego se cambia */ float healthPercentage = (float)vidaEn1 / maxHealth;
+        healthBarTransform.transform.localScale = new Vector3(healthPercentage * 5, 1, 1);
+        healthBar.color = Color.Lerp(Color.red, Color.green, healthPercentage);
+
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
