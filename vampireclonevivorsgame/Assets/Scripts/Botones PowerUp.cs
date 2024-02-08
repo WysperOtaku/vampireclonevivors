@@ -28,8 +28,20 @@ public class BotonesPowerUp : MonoBehaviour
     public void PowerUp2()
     {
         PuntoAtaque.cooldownBala -= 0.05f;
+        if (PuntoAtaque.cooldownBala <= 0f)
+        {
+            PuntoAtaque.cooldownBala = 0.01f;
+        }
         PuntoAtaqueN2.cooldownBala -= 0.1f;
+        if (PuntoAtaqueN2.cooldownBala <= 0f)
+        {
+            PuntoAtaqueN2.cooldownBala = 0.01f;
+        }
         PuntoAtaqueN3.cooldownBala -= 0.1f;
+        if (PuntoAtaqueN3.cooldownBala <= 0f)
+        {
+            PuntoAtaqueN3.cooldownBala = 0.01f;
+        }
         panelPowerup.SetActive(false);
         Time.timeScale = 1;
     }
