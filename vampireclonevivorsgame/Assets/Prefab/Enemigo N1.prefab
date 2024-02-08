@@ -249,3 +249,6 @@ MonoBehaviour:
   healthBar: {fileID: 9015945685544069541}
   healthBarTransform: {fileID: 8854400968229897463}
   maxHealth: 3
+  powerUp1: {fileID: 2901236947320528776, guid: 3515a558a0fb8764fbd4f07d99225efc, type: 3}
+  powerUp2: {fileID: 4390402170071480156, guid: e23fa344872845d428307fc349d04688, type: 3}
+  vidaInicial: 3

@@ -7,10 +7,15 @@ using UnityEngine;
 
 public class EnemyN1 : MonoBehaviour
 {
-    private float velocidadE = 2.5f;
+    public static float velocidadE = 2.5f;
+    public static float velExtra;
     private GameObject player;
-    private float vidaEn1 = 3;
     public static int killslvl1;
+    public GameObject powerUp1;
+    public GameObject powerUp2;
+    private float vidaEn1;
+    public float vidaInicial = 3;
+    public static float incremento;
     private float dañoP = 1f;
     public SpriteRenderer healthBar;
     public Transform healthBarTransform;
@@ -19,9 +24,8 @@ public class EnemyN1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        vidaEn1 = vidaInicial + incremento;
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -30,17 +34,30 @@ public class EnemyN1 : MonoBehaviour
         healthBar.color = Color.Lerp(Color.red, Color.green, healthPercentage);
 
     }
-
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("BalaP") || collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("BalaP"))
         {
             vidaEn1 -= dañoP + Player.nuevoDaño;
-            if (vidaEn1 <= 0)
-            {
-            Destroy(this.gameObject);
-            killslvl1++;
-            }
+        }
+        else if (collision.gameObject.CompareTag("Player"))
+        {
+            vidaEn1--;
+        }
+        if (vidaEn1 <= 0)
+        {
+        Destroy(this.gameObject);
+        killslvl1++;
+        int randomNumero = Random.Range(1, 21);
+        int randomNumero2 = Random.Range(1, 31);
+        if (randomNumero2 == 3)
+        {
+            Instantiate(powerUp2, transform.position, Quaternion.identity);
+        }
+        else if (randomNumero == 3)
+        {
+            Instantiate(powerUp1, transform.position, Quaternion.identity);
+        }
         }
     }
     private void FixedUpdate()
