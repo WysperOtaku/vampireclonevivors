@@ -14,20 +14,22 @@ public class Spawn : MonoBehaviour
     {
         SpawnEnemies();
     }
-    private void SpawnEnemies()
+    private void SpawnEnemies() // This method is called when all enemies are dead
     {
         generationCount++;
         for (int i = 0; i < totalEnemiesToSpawn; i++)
         {
             Vector3 randomPosition = GetRandomPositionOnCircle();
             GameObject randomEnemyPrefab;
-            if (generationCount >= 3)
+
+            // if generationCount is 3 or more, spawn any enemy prefab
+            if (generationCount >= 7 && EnemyN1.killslvl1 >= 50 && EnemyN2.killslvl2 >= 10)
+            {
+                randomEnemyPrefab = enemyPrefabs[Random.Range(0, 3)];
+            }
+            else if (generationCount >= 3)
             {
                 randomEnemyPrefab = enemyPrefabs[Random.Range(0, 2)];
-            }
-            else if (generationCount >= 7 && EnemyN1.killslvl1 >= 50 && EnemyN2.killslvl2 >= 10)
-            {
-                randomEnemyPrefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Count)];
             }
             else
             {
