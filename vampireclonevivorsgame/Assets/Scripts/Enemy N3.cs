@@ -15,7 +15,12 @@ public class EnemyN3 : MonoBehaviour
     private bool isDodging = false; // Add this line
     private float health = 10f;
     private float dañoP = 1; // Add this line
-    public static int killslvl3 = 0; // Add this line
+    public static int killslvl3; // Add this line
+    public SpriteRenderer healthBar; // Add this line
+    public Transform healthBarTransform; // Add this line
+
+    public int maxHealth = 10; // Add this line
+
     void Start()
     {
         dodgeCount = maxDodges; // Inicializa el contador de esquivas
@@ -46,6 +51,11 @@ public class EnemyN3 : MonoBehaviour
                 StartCoroutine(Dodge());
             }
         }
+
+        /*Placeholder de barra de vida luego se cambia */ float healthPercentage = (float)health / maxHealth;
+        healthBarTransform.transform.localScale = new Vector3(healthPercentage * 5, 1, 1);
+        healthBar.color = Color.Lerp(Color.red, Color.green, healthPercentage);
+
     }
 
     void OnCollisionEnter2D(Collision2D collision)

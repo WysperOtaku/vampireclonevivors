@@ -47,7 +47,6 @@ public class PuntoAtaque : MonoBehaviour
     {
         // Wait for 0.5 seconds
         yield return new WaitForSeconds(1f);
-        Debug.Log("Reset Disparar");
         // Set disparar to false
         disparar = false;
     }
