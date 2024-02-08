@@ -62,6 +62,18 @@ public class Player : MonoBehaviour
         GameObject[] enemigos = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (GameObject enemigo in enemigos)
         {
+            if (enemigo.GetComponent<EnemyN1>())
+            {
+                EnemyN1.killslvl1++;
+            }
+            else if (enemigo.GetComponent<EnemyN2>())
+            {
+                EnemyN2.killslvl2++;
+            }
+            else if (enemigo.GetComponent<EnemyN3>())
+            {
+                EnemyN3.killslvl3++;
+            }
             Destroy(enemigo);
         }
         Destroy(collision.gameObject);
