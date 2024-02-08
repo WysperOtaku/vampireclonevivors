@@ -252,4 +252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   puntoAtaque: {fileID: 4024327997344538701}
+  powerUp1: {fileID: 2901236947320528776, guid: 3515a558a0fb8764fbd4f07d99225efc, type: 3}
+  powerUp2: {fileID: 4390402170071480156, guid: e23fa344872845d428307fc349d04688, type: 3}
   childTransform: {fileID: 5852271479410315523}
+  vidaInicial: 10

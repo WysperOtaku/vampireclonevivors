@@ -9,6 +9,7 @@ TagManager:
   - BalaP
   - BalaE
   - PowerUp
+  - PowerUp2
   layers:
   - Default
   - TransparentFX

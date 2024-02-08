@@ -7,16 +7,21 @@ public class PuntoAtaqueN3 : MonoBehaviour
     public GameObject balaEP;
     public Transform puntoAtaque;
     private float velocidadBala = 10f;
-    private float cooldownBala = 1.5f;
+    public static float cooldownBala = 1.5f;
+    public static float ultimoDisparo;
     private float rangoDisparo = 10f;
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("Disparo", 1f, cooldownBala);
+        
     }
     void Update()
     {
-        
+        if (Time.time >= ultimoDisparo + cooldownBala)
+        {
+            ultimoDisparo = Time.time;
+            Disparo();
+        }
     }
     void Disparo()
     {

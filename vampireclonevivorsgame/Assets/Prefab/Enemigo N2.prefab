@@ -208,3 +208,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49efa6645e1fed940a61c5ee002217c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  powerUp1: {fileID: 2901236947320528776, guid: 3515a558a0fb8764fbd4f07d99225efc, type: 3}
+  powerUp2: {fileID: 4390402170071480156, guid: e23fa344872845d428307fc349d04688, type: 3}
+  vidaInicial: 5
