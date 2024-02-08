@@ -28,6 +28,7 @@ public class EnemyN3 : MonoBehaviour
 
     void Start()
     {
+        health = vidaInicial + incremento;
         dodgeCount = maxDodges; // Inicializa el contador de esquivas
         player = GameObject.FindGameObjectWithTag("Player").transform; //Busca al jugador
     }
@@ -120,7 +121,6 @@ public class EnemyN3 : MonoBehaviour
 
     private IEnumerator Dodge()
     {
-        Debug.Log("Dodge");
         // Check if the enemy has dodged the maximum number of times
         if (dodgeCount > 0)
         {
