@@ -21,6 +21,8 @@ public class Spawn : MonoBehaviour
         {
             Vector3 randomPosition = GetRandomPositionOnCircle();
             GameObject randomEnemyPrefab;
+
+            // if generationCount is 3 or more, spawn any enemy prefab
             if (generationCount >= 3)
             {
                 randomEnemyPrefab = enemyPrefabs[Random.Range(0, 2)];
