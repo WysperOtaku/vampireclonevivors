@@ -29,14 +29,16 @@ public class BotonesPowerUp : MonoBehaviour
     {
         PuntoAtaque.cooldownBala -= 0.05f;
         PuntoAtaqueN2.cooldownBala -= 0.1f;
-        PuntoAtaqueN2.cooldownBala -= 0.1f;
+        PuntoAtaqueN3.cooldownBala -= 0.1f;
         panelPowerup.SetActive(false);
         Time.timeScale = 1;
     }
     public void PowerUp3()
     {
         Player.vidaP = 25f + Player.vidaP;
-        
+        EnemyN1.incremento += 1;
+        EnemyN2.incremento += 1;
+        EnemyN3.incremento += 1;
         panelPowerup.SetActive(false);
         Time.timeScale = 1;
     }

@@ -7,6 +7,8 @@ public class EnemyN3 : MonoBehaviour
 {
     public Transform player; 
     public GameObject puntoAtaque;
+    public GameObject powerUp1;
+    public GameObject powerUp2;
     public static float moveSpeed = 3.25f;
     public static float velExtra;
     private float stoppingDistance = 5f;
@@ -14,7 +16,9 @@ public class EnemyN3 : MonoBehaviour
     private int dodgeCount = 0; // Contador de esquivas
     private int maxDodges = 3; // Número máximo de esquivas
     private bool isDodging = false; // Add this line
-    private float health = 10f;
+    private float health;
+    public float vidaInicial = 10;
+    public static float incremento;
     private float dañoP = 1; // Add this line
     public static int killslvl3 = 0; // Add this line
     void Start()
@@ -74,9 +78,18 @@ public class EnemyN3 : MonoBehaviour
             // Destroy the enemy
             Destroy(gameObject);
             killslvl3++;
+            int randomNumero = Random.Range(1, 21);
+            int randomNumero2 = Random.Range(1, 31);
+            if (randomNumero2 == 3)
+            {
+                Instantiate(powerUp2, transform.position, Quaternion.identity);
+            }
+            else if (randomNumero == 3)
+            {
+                Instantiate(powerUp1, transform.position, Quaternion.identity);
+            }
         }
     }
-
     private void MoveTowardsPlayer() //Mueve el enemigo hacia el jugador
     {
         puntoAtaque.SetActive(false);

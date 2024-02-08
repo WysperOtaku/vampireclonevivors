@@ -13,15 +13,11 @@ public class PuntoAtaqueN2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        InvokeRepeating("Disparo", 1f, cooldownBala);
     }
     void Update()
     {
-        if (Time.time >= ultimoDisparo + cooldownBala)
-        {
-            ultimoDisparo = Time.time;
-            Disparo();
-        }
+
     }
     void Disparo()
     {

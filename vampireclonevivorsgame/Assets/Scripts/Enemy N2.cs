@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class EnemyN2 : MonoBehaviour
@@ -7,13 +8,17 @@ public class EnemyN2 : MonoBehaviour
     public static float velocidadE = 2f;
     public static float velExtra;
     private GameObject player;
-    private float vidaEn1 = 5;
+    public GameObject powerUp1;
+    public GameObject powerUp2;
+    private float vidaEn1;
+    public float vidaInicial = 5;
+    public static float incremento;
     public static int killslvl2 = 0;
     private float dañoP = 1f;
     // Start is called before the first frame update
     void Start()
     {
-        
+        vidaEn1 = vidaInicial + incremento;
     }
 
     // Update is called once per frame
@@ -35,6 +40,16 @@ public class EnemyN2 : MonoBehaviour
         {
         Destroy(this.gameObject);
         killslvl2++;
+        int randomNumero = Random.Range(1, 21);
+        int randomNumero2 = Random.Range(1, 31);
+        if (randomNumero2 == 3)
+        {
+            Instantiate(powerUp2, transform.position, Quaternion.identity);
+        }
+        else if (randomNumero == 3)
+        {
+            Instantiate(powerUp1, transform.position, Quaternion.identity);
+        }
         }
     }
     private void FixedUpdate()
