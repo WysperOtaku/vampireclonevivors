@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
     public static float vidaP = 100;
     public static float nuevoDaño;
     public GameObject panelPowerup;
+    public GameObject panelGameOver;
+    public GameObject flechaGameOver;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +25,8 @@ public class Player : MonoBehaviour
         EnemyN3.incremento = 0;
         nuevoDaño = 0;
         panelPowerup.SetActive(false);
+        panelGameOver.SetActive(false);
+        flechaGameOver.SetActive(false);
     }
 
     // Update is called once per frame
@@ -48,6 +52,8 @@ public class Player : MonoBehaviour
             vidaP--;
             if (vidaP <= 0)
             {
+                panelGameOver.SetActive(true);
+                flechaGameOver.SetActive(true);
                 Destroy(this.gameObject);
             }
         }
