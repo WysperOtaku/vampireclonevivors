@@ -23,8 +23,8 @@ public class FlechaGO : MonoBehaviour
 
         if (transform.position == Arriba.position && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.Z)))
         {
-            //restart
             this.gameObject.SetActive(false);
+            SceneManager.LoadScene("SampleScene");
         }
 
         if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
