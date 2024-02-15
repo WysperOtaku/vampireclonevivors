@@ -16,6 +16,10 @@ public class Player : MonoBehaviour
     public GameObject flechaGameOver;
     public GameObject flechaPause;
     public GameObject panelPause;
+    public static int powerUp1;
+    public static int powerUp2;
+
+    public static int weaponLevel;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +30,9 @@ public class Player : MonoBehaviour
         EnemyN2.incremento = 0;
         EnemyN3.incremento = 0;
         nuevoDaño = 0;
+        powerUp1 = 0;
+        powerUp2 = 0;
+        weaponLevel = 0;
         panelPowerup.SetActive(false);
         panelGameOver.SetActive(false);
         flechaGameOver.SetActive(false);
@@ -77,10 +84,12 @@ public class Player : MonoBehaviour
             Destroy(collision.gameObject);
             Time.timeScale = 0;
             panelPowerup.SetActive(true);
+            powerUp1 += 1;
         }
         if (collision.gameObject.CompareTag("PowerUp2"))
         {
         GameObject[] enemigos = GameObject.FindGameObjectsWithTag("Enemy");
+        powerUp2 += 1;
         foreach (GameObject enemigo in enemigos)
         {
             if (enemigo.GetComponent<EnemyN1>())
