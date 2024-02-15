@@ -48,7 +48,7 @@ public class EnemyN1 : MonoBehaviour
         {
         Destroy(this.gameObject);
         killslvl1++;
-        int randomNumero = Random.Range(1, 21);
+        int randomNumero = Random.Range(1, 11);
         int randomNumero2 = Random.Range(1, 31);
         if (randomNumero2 == 3)
         {

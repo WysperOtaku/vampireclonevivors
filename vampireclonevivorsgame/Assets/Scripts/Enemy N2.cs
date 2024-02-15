@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class EnemyN2 : MonoBehaviour
@@ -46,7 +45,7 @@ public class EnemyN2 : MonoBehaviour
         {
         Destroy(this.gameObject);
         killslvl2++;
-        int randomNumero = Random.Range(1, 21);
+        int randomNumero = Random.Range(1, 11);
         int randomNumero2 = Random.Range(1, 31);
         if (randomNumero2 == 3)
         {
