@@ -22,12 +22,14 @@ public class BotonesPowerUp : MonoBehaviour
         EnemyN1.velocidadE = EnemyN1.velExtra = 0.25f + EnemyN1.velocidadE;
         EnemyN2.velocidadE = EnemyN2.velExtra = 0.25f + EnemyN2.velocidadE;
         EnemyN3.moveSpeed = EnemyN3.velExtra = 0.25f + EnemyN3.moveSpeed;
+        Player.weaponLevel += 1;
         panelPowerup.SetActive(false);
         Time.timeScale = 1;
     }
     public void PowerUp2()
     {
         PuntoAtaque.cooldownBala -= 0.05f;
+        Player.weaponLevel += 1;
         if (PuntoAtaque.cooldownBala <= 0f)
         {
             PuntoAtaque.cooldownBala = 0.01f;
