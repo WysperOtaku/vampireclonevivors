@@ -5,12 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class FlechaGO : MonoBehaviour
 {
-    public Transform Arriba;
-    public Transform Abajo;
+    public GameObject ArribaFlecha;
+    public GameObject AbajoFlecha;
     // Start is called before the first frame update
     void Start()
     {
-        
+        ArribaFlecha.SetActive(true);
+        AbajoFlecha.SetActive(false);
     }
 
     // Update is called once per frame
@@ -18,24 +19,36 @@ public class FlechaGO : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
-            transform.position = Arriba.position;
+            AbajoFlecha.SetActive(false);
+            ArribaFlecha.SetActive(true);
         }
 
-        if (transform.position == Arriba.position && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.Z)))
+        if (ArribaFlecha.activeSelf && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.Z)))
         {
-            this.gameObject.SetActive(false);
-            SceneManager.LoadScene("SampleScene");
+            Jugar();
         }
 
         if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
         {
-            transform.position = Abajo.position;
+            ArribaFlecha.SetActive(false);
+            AbajoFlecha.SetActive(true);
         }
 
-        if (transform.position == Abajo.position && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.Z)))
+        if (AbajoFlecha.activeSelf && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.Z)))
         {
-            this.gameObject.SetActive(false);
-            SceneManager.LoadScene("Inicio");
+            SalirAlMenu();
         }
+    }
+    private void Jugar()
+    {
+        ArribaFlecha.SetActive(false);
+        AbajoFlecha.SetActive(false);
+        SceneManager.LoadScene("SampleScene");
+    }
+    private void SalirAlMenu()
+    {
+        ArribaFlecha.SetActive(false);
+        AbajoFlecha.SetActive(false);
+        SceneManager.LoadScene("Inicio");
     }
 }

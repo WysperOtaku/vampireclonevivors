@@ -33,6 +33,8 @@ public class Player : MonoBehaviour
         powerUp1 = 0;
         powerUp2 = 0;
         weaponLevel = 0;
+        vidaP = 100;
+        maxHealth = 100;
         panelPowerup.SetActive(false);
         panelGameOver.SetActive(false);
         flechaGameOver.SetActive(false);
