@@ -39,6 +39,13 @@ public class Player : MonoBehaviour
         panelGameOver.SetActive(false);
         flechaGameOver.SetActive(false);
         panelPause.SetActive(false);
+        PuntoAtaqueN2.cooldownBala = 1.5f;
+        PuntoAtaqueN3.cooldownBala = 1.5f;
+        PuntoAtaque.cooldownBala = 0.75f;
+        EnemyN1.velocidadE = 2.5f;
+        EnemyN2.velocidadE = 2f;
+        EnemyN3.moveSpeed = 3.25f;
+
     }
 
     // Update is called once per frame
