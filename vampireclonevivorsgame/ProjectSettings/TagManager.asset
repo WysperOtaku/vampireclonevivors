@@ -3,21 +3,27 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Limite
+  - Enemy
+  - BalaP
+  - BalaE
+  - PowerUp
+  - PowerUp2
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Limite
+  - Camera
+  - Enemy
+  - BalaP
+  - SpawnArea
+  - BalaE
+  - PowerUp
   - 
   - 
   - 
